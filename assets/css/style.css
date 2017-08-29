@@ -21,6 +21,10 @@ body {
 }
 
 
+.jumbotron-main {
+	opacity: 0.8;
+}
+
 .answer {
   background-color: #ffcc99;
   color: black;
@@ -29,6 +33,9 @@ body {
   margin-right: auto;
   padding-left: 10px;
   padding-top: 10px;
-  width: 40%;
+  width: 50%;
 }
 
+.image {
+ width: 50%
+}

@@ -5,10 +5,10 @@ var startPage; //initial start page HTML
 var gameText; //holds the HTML that will show on screen
 var clock; //this is the timer clock
 var counter = 30; //30 seconds for each question
-var questionArray = ["What year did Raiders of the Lost Ark premiere?", "The making of the Indiana Jones movies saw the collaboration of Steven Spielberg with which other director?", "Which animal is Indy most afraid of?"]; //holds all the questions
-var answerArray = [["1980", "1981", "1984", "1989"], ["Tim Burton", "Martin Scorcese", "J.J. Abrams", "George Lucas"], ["Snakes", "Rats", "Bears", "Monkeys"]]; //holds ALL the answer choices
-var imageArray =[]; //holds images when answer is clicked
-var rightAnswers = ["B. 1981", "D. George Lucas", "A. Snakes"]; //holds correct answers
+var questionArray = ["What year did Raiders of the Lost Ark premiere?", "The making of the Indiana Jones movies saw the collaboration of Steven Spielberg with which other director?", "Which animal is Indy most afraid of?", "What was Indy searching for in the Last Crusade?", "What is the name of Indiana Jones' sidekick in the Temple of Doom?"]; //holds all the questions
+var answerArray = [["1980", "1981", "1984", "1989"], ["Tim Burton", "Martin Scorcese", "J.J. Abrams", "George Lucas"], ["Snakes", "Rats", "Bears", "Monkeys"], ["The Ark of the Covenant", "The 10 Commandments", "The Iron Throne", "The Holy Grail"], ["Data", "Kid", "Short Round", "Jonathan"]]; //holds ALL the answer choices
+var imageArray =["<img class='center-block' src='assets/images/raiders.gif'>","<img class='center-block image' src='assets/images/george.gif'>","<img class='center-block' src='assets/images/snakes.gif'>", "<img class='center-block' src='assets/images/grail.gif'>", "<img class='center-block' src='assets/images/data.gif'>" ]; //holds images when answer is clicked
+var rightAnswers = ["B. 1981", "D. George Lucas", "A. Snakes", "D. The Holy Grail", "C. Short Round"]; //holds correct answers
 var questionCount = 0; //holds number of questions answered
 var selectedAnswer; //which answer is selected
 var correctCount = 0; //used to hold the number of correct choices
@@ -65,7 +65,6 @@ function generateText() {
 
 }//close
 
-
 function timer() {
 	clock = setInterval(thirtySeconds, 1000);
 
@@ -85,34 +84,33 @@ function timer() {
 //when user doesn't answer, time will stop after 30 seconds
 function timeOutLoss() {
 	unansweredCount++;
-	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class ='text-center'>You ran out of time... <br> The correct answer was: " + rightAnswers[questionCount] + "</p>";
+	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class ='text-center'>You ran out of time... <br> The correct answer was: " + rightAnswers[questionCount] + "</p>" + "<img class='center-block image' src='assets/images/melt.gif'>";
 	$(".main-area").html(gameText);
-	setTimeout(hold, 3000);
+	setTimeout(hold, 4000);
 }//close
 
 function loss() {
 	incorrectCount++;
-	gameText = "<p class='text-center timer-p'> Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'> Sorry, that's wrong. The correct answer is: " + rightAnswers[questionCount] + "</p>";
+	gameText = "<p class='text-center timer-p'> Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'> Sorry, that's wrong. The correct answer is: " + rightAnswers[questionCount] + "</p>" + "<img class='center-block' src='assets/images/popcorn.gif'>";
 	$(".main-area").html(gameText);
-	setTimeout(hold, 3000);
+	setTimeout(hold, 4000);
 }//close
 
 function win() {
 	correctCount++;
-	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class = 'text-center'> Good job! The answer is: " + rightAnswers[questionCount] + "</p>";
+	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class = 'text-center'> Good job! The answer is: " + rightAnswers[questionCount] + "</p>" + imageArray[questionCount];
 	$(".main-area").html(gameText);
-	setTimeout(hold, 3000);
+	setTimeout(hold, 4000);
 }//close
-
 
 //Final page includes summary, and a reset button
 function finalPage() {
-	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Let's see how you did! Are you an Indiana Jones expert...or did you get lost in the Temple of Doom?" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctCount + "</p>" + "<p>Wrong Answers: " + incorrectCount + "</p>" + "<p>Unanswered: " + unansweredCount + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset Your Adventure!</a></p>";
+	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>How did you do? <br> Are you an Indiana Jones expert... <br> or did you get lost in the Temple of Doom?" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctCount + "</p>" + "<p>Wrong Answers: " + incorrectCount + "</p>" + "<p>Unanswered: " + unansweredCount + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset Your Adventure!</a></p>";
 	$(".main-area").html(gameText);
 }//close
 
 function hold() {
-	if (questionCount < 2) {
+	if (questionCount < 4) {
 		questionCount++;
 		counter = 30; 
 		
