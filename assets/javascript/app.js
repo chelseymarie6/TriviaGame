@@ -57,12 +57,6 @@ $(document).ready(function() {
 function generateText() {
 	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCount] + "</p><p class='first-answer answer'>A. " + answerArray[questionCount][0] + "</p><p class='answer'>B. "+answerArray[questionCount][1]+"</p><p class='answer'>C. "+answerArray[questionCount][2]+"</p><p class='answer'>D. "+answerArray[questionCount][3]+"</p>";
 	$(".main-area").html(gameText);
-
-	console.log(questionCount);
-	console.log(questionArray);
-	console.log(answerArray);
-	console.log(gameText);
-
 }//close
 
 function timer() {
@@ -105,7 +99,7 @@ function win() {
 
 //Final page includes summary, and a reset button
 function finalPage() {
-	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>How did you do? <br> Are you an Indiana Jones expert... <br> or did you get lost in the Temple of Doom?" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctCount + "</p>" + "<p>Wrong Answers: " + incorrectCount + "</p>" + "<p>Unanswered: " + unansweredCount + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset Your Adventure!</a></p>";
+	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>How did you do? <br> Are you an Indiana Jones expert... <br> or did you get lost in the Temple of Doom?" + "</p>" + "<p>Correct Answers: " + correctCount + "</p>" + "<p>Wrong Answers: " + incorrectCount + "</p>" + "<p>Unanswered: " + unansweredCount + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset Your Adventure!</a></p>";
 	$(".main-area").html(gameText);
 }//close
 
