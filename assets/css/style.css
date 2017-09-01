@@ -36,6 +36,11 @@ body {
   width: 50%;
 }
 
+.answer:hover {
+  background-color: #3a8a8e;
+}
+
 .image {
  width: 50%
 }
+

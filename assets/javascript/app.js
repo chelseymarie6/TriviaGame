@@ -55,7 +55,7 @@ $(document).ready(function() {
 //FUNCTIONS: generate the text, timer, loss to timeout, final page, hold, correct/incorrect/unanswered counter, win/loss
 
 function generateText() {
-	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCount] + "</p><p class='first-answer answer'>A. " + answerArray[questionCount][0] + "</p><p class='answer'>B. "+answerArray[questionCount][1]+"</p><p class='answer'>C. "+answerArray[questionCount][2]+"</p><p class='answer'>D. "+answerArray[questionCount][3]+"</p>";
+	gameText = "<p class='text-center'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCount] + "</p><p class='first-answer answer'>A. " + answerArray[questionCount][0] + "</p><p class='answer'>B. "+answerArray[questionCount][1]+"</p><p class='answer'>C. "+answerArray[questionCount][2]+"</p><p class='answer'>D. "+answerArray[questionCount][3]+"</p>";
 	$(".main-area").html(gameText);
 }//close
 
@@ -78,28 +78,28 @@ function timer() {
 //when user doesn't answer, time will stop after 30 seconds
 function timeOutLoss() {
 	unansweredCount++;
-	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class ='text-center'>You ran out of time... <br> The correct answer was: " + rightAnswers[questionCount] + "</p>" + "<img class='center-block image' src='assets/images/melt.gif'>";
+	gameText = "<p class='text-center'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class ='text-center'>You ran out of time... <br> The correct answer was: " + rightAnswers[questionCount] + "</p>" + "<img class='center-block image' src='assets/images/melt.gif'>";
 	$(".main-area").html(gameText);
 	setTimeout(hold, 4000);
 }//close
 
 function loss() {
 	incorrectCount++;
-	gameText = "<p class='text-center timer-p'> Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'> Sorry, that's wrong. The correct answer is: " + rightAnswers[questionCount] + "</p>" + "<img class='center-block' src='assets/images/popcorn.gif'>";
+	gameText = "<p class='text-center'> Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'> Sorry, that's wrong. The correct answer is: " + rightAnswers[questionCount] + "</p>" + "<img class='center-block' src='assets/images/popcorn.gif'>";
 	$(".main-area").html(gameText);
 	setTimeout(hold, 4000);
 }//close
 
 function win() {
 	correctCount++;
-	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class = 'text-center'> Good job! The answer is: " + rightAnswers[questionCount] + "</p>" + imageArray[questionCount];
+	gameText = "<p class='text-center'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class = 'text-center'> Good job! The answer is: " + rightAnswers[questionCount] + "</p>" + imageArray[questionCount];
 	$(".main-area").html(gameText);
 	setTimeout(hold, 4000);
 }//close
 
 //Final page includes summary, and a reset button
 function finalPage() {
-	gameText = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>How did you do? <br> Are you an Indiana Jones expert... <br> or did you get lost in the Temple of Doom?" + "</p>" + "<p>Correct Answers: " + correctCount + "</p>" + "<p>Wrong Answers: " + incorrectCount + "</p>" + "<p>Unanswered: " + unansweredCount + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset Your Adventure!</a></p>";
+	gameText = "<p class='text-center'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>How did you do? <br> Are you an Indiana Jones expert... <br> or did you get lost in the Temple of Doom?" + "</p>" + "<p>Correct Answers: " + correctCount + "</p>" + "<p>Wrong Answers: " + incorrectCount + "</p>" + "<p>Unanswered: " + unansweredCount + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset Your Adventure!</a></p>";
 	$(".main-area").html(gameText);
 }//close
 
